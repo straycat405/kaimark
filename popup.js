@@ -51,8 +51,9 @@ function formatSavedAt(dateAdded) {
   if (diffMinutes < 7 * 1440) return t("daysAgo", { count: Math.floor(diffMinutes / 1440) });
   return new Intl.DateTimeFormat(resolveLanguage(state.settings.language) === "ko" ? "ko-KR" : "en-US", { month: "numeric", day: "numeric" }).format(new Date(dateAdded));
 }
-function openCurrent(url) { chrome.tabs.update({ url }); window.close(); }
-function openNew(url) { chrome.tabs.create({ url }); }
+function isOpenableUrl(url) { try { return !["javascript:", "data:", "blob:"].includes(new URL(url).protocol); } catch { return false; } }
+function openCurrent(url) { if (!isOpenableUrl(url)) return; chrome.tabs.update({ url }); window.close(); }
+function openNew(url) { if (!isOpenableUrl(url)) return; chrome.tabs.create({ url }); }
 function openBookmarkManager() { chrome.tabs.create({ url: "chrome://bookmarks/" }); window.close(); }
 function applyTheme(theme) { document.documentElement.dataset.theme = theme; document.querySelectorAll(".theme-toggle button[data-theme]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.theme === theme))); }
 function applyLanguage(language) {
