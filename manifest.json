@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Kaimark",
+  "version": "0.1.0",
+  "description": "Find, annotate, and organize your existing Chrome bookmarks.",
+  "permissions": ["bookmarks", "storage", "favicon"],
+  "action": {
+    "default_title": "Kaimark",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
