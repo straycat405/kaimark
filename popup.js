@@ -1,21 +1,21 @@
 const translations = {
   ko: {
-    helpLabel: "사용 방법", settings: "설정", helpTitle: "저장한 북마크를 분류하고 관리하세요", helpDescription: "새 북마크는 분류하지 않음에 모입니다. 제목, 메모, 폴더를 채워 나중에 쉽게 찾으세요.",
-    bookmarkManager: "북마크 관리자", refresh: "새로고침", bookmarkList: "북마크 목록", inbox: "분류하지 않음", recent: "최근 저장", searchPlaceholder: "내 제목, 메모, 원본 제목 검색",
+    helpLabel: "사용 방법", settings: "설정", helpTitle: "저장한 북마크를 분류하고 관리하세요", helpDescription: "최근 저장한 북마크에 제목과 메모를 추가하고 폴더를 정리해 나중에 쉽게 찾으세요.",
+    bookmarkManager: "북마크 관리자", refresh: "새로고침", recent: "최근 저장", searchPlaceholder: "내 제목, 메모, 원본 제목 검색",
     editBookmark: "북마크 편집", backToList: "목록으로", personalTitle: "1. 내 제목", noteLabel: "2. 저장 이유 / 메모", notePlaceholder: "왜 저장했는지, 언제 다시 쓸지", moveFolder: "3. 폴더 이동", createFolder: "+ 새 폴더 만들기", saveChanges: "변경사항 저장", openCurrent: "현재 탭", openNew: "새 탭 ↗",
     settingsDescription: "Kaimark 환경을 조절합니다.", appearance: "화면 모드", appearanceDescription: "Chrome 또는 기기 설정을 따르거나, 밝고 어두운 화면을 직접 고릅니다.", system: "시스템", light: "라이트", dark: "다크", language: "언어", languageDescription: "Kaimark에 표시할 언어를 고릅니다.", reportBug: "버그 신고", changelog: "변경 이력",
-    loading: "북마크를 불러오는 중…", inboxDescription: "새 북마크를 먼저 분류합니다.", recentDescription: "최근 저장한 북마크", searchResults: "{count}개 검색 결과", inboxCount: "분류하지 않음 {count}개", recentCount: "최근 저장 {count}개", noSearchResults: "일치하는 북마크가 없습니다.", noInbox: "분류하지 않은 북마크가 없습니다. 새 북마크를 저장하면 여기에 나타납니다.", noRecent: "최근 북마크가 없습니다.", otherBookmarks: "기타 북마크", noFolder: "폴더 없음", noSavedDate: "저장일 없음", justNow: "방금 저장", minutesAgo: "{count}분 전", hoursAgo: "{count}시간 전", daysAgo: "{count}일 전", edit: "편집", openNewTab: "새 탭에서 열기", originalTitle: "원본: {title}", newFolderPrompt: "새 폴더 이름", folderCreated: "‘{title}’ 폴더를 만들었습니다.", changesSaved: "변경사항을 저장했습니다."
+    loading: "북마크를 불러오는 중…", recentDescription: "최근 저장한 북마크", searchResults: "{count}개 검색 결과", recentCount: "최근 저장 {count}개", noSearchResults: "일치하는 북마크가 없습니다.", noRecent: "최근 북마크가 없습니다.", noNote: "메모 없음", directOnBar: "북마크바에 직접", otherBookmarks: "기타 북마크", noFolder: "폴더 없음", noSavedDate: "저장일 없음", justNow: "방금 저장", minutesAgo: "{count}분 전", hoursAgo: "{count}시간 전", daysAgo: "{count}일 전", edit: "편집", openNewTab: "새 탭에서 열기", originalTitle: "원본: {title}", newFolderPrompt: "새 폴더 이름", folderCreated: "‘{title}’ 폴더를 만들었습니다.", changesSaved: "변경사항을 저장했습니다."
   },
   en: {
-    helpLabel: "How to use", settings: "Settings", helpTitle: "Organize and rediscover your bookmarks", helpDescription: "New bookmarks appear in Unorganized. Add a title, note, and folder so you can find them later.",
-    bookmarkManager: "Bookmark Manager", refresh: "Refresh", bookmarkList: "Bookmark list", inbox: "Unorganized", recent: "Recent", searchPlaceholder: "Search titles, notes, and bookmarks",
+    helpLabel: "How to use", settings: "Settings", helpTitle: "Organize and rediscover your bookmarks", helpDescription: "Add a title and note to recent bookmarks, and organize them in folders so you can find them later.",
+    bookmarkManager: "Bookmark Manager", refresh: "Refresh", recent: "Recent", searchPlaceholder: "Search titles, notes, and bookmarks",
     editBookmark: "Edit bookmark", backToList: "Back to list", personalTitle: "1. My title", noteLabel: "2. Why I saved it / note", notePlaceholder: "Why you saved this or when to use it", moveFolder: "3. Move to folder", createFolder: "+ Create folder", saveChanges: "Save changes", openCurrent: "Current tab", openNew: "New tab ↗",
     settingsDescription: "Personalize your Kaimark experience.", appearance: "Appearance", appearanceDescription: "Follow Chrome or your device, or choose a light or dark appearance.", system: "System", light: "Light", dark: "Dark", language: "Language", languageDescription: "Choose the language shown in Kaimark.", reportBug: "Report a Bug", changelog: "Changelog",
-    loading: "Loading bookmarks…", inboxDescription: "Organize new bookmarks first.", recentDescription: "Recently saved bookmarks", searchResults: "{count} search results", inboxCount: "{count} unorganized", recentCount: "{count} recent bookmarks", noSearchResults: "No matching bookmarks.", noInbox: "No unorganized bookmarks. Save a new bookmark to see it here.", noRecent: "No recent bookmarks.", otherBookmarks: "Other bookmarks", noFolder: "No folder", noSavedDate: "No saved date", justNow: "Saved just now", minutesAgo: "{count}m ago", hoursAgo: "{count}h ago", daysAgo: "{count}d ago", edit: "Edit", openNewTab: "Open in new tab", originalTitle: "Original: {title}", newFolderPrompt: "New folder name", folderCreated: "Created ‘{title}’.", changesSaved: "Changes saved."
+    loading: "Loading bookmarks…", recentDescription: "Recently saved bookmarks", searchResults: "{count} search results", recentCount: "{count} recent bookmarks", noSearchResults: "No matching bookmarks.", noRecent: "No recent bookmarks.", noNote: "No note", directOnBar: "On bookmarks bar", otherBookmarks: "Other bookmarks", noFolder: "No folder", noSavedDate: "No saved date", justNow: "Saved just now", minutesAgo: "{count}m ago", hoursAgo: "{count}h ago", daysAgo: "{count}d ago", edit: "Edit", openNewTab: "Open in new tab", originalTitle: "Original: {title}", newFolderPrompt: "New folder name", folderCreated: "Created ‘{title}’.", changesSaved: "Changes saved."
   }
 };
 
-const state = { bookmarks: [], metadata: {}, selected: null, folders: [], settings: { theme: "system", language: "ko" }, view: "inbox" };
+const state = { bookmarks: [], metadata: {}, selected: null, folders: [], settings: { theme: "system", language: "ko" } };
 const $ = (id) => document.getElementById(id);
 const listView = $("list-view"), editorView = $("editor-view"), list = $("bookmark-list"), status = $("status");
 function t(key, values = {}) { const value = translations[state.settings.language]?.[key] ?? translations.ko[key] ?? key; return Object.entries(values).reduce((text, [name, replacement]) => text.replaceAll(`{${name}}`, replacement), value); }
@@ -31,13 +31,16 @@ function toast(message) { const target = $("toast"); target.textContent = messag
 function flattenFolders(nodes, depth = 0, output = []) {
   for (const node of nodes) {
     const title = node.title || t("otherBookmarks");
-    if (!node.url && node.id !== "0") output.push({ id: node.id, title, optionLabel: `${"　".repeat(Math.max(depth - 1, 0))}${title}` });
+    if (!node.url && node.id !== "0") output.push({ id: node.id, title, folderType: node.folderType, depth: Math.max(depth - 1, 0) });
     if (node.children) flattenFolders(node.children, depth + 1, output);
   }
   return output;
 }
-function folderName(id) { return state.folders.find((folder) => folder.id === id)?.title || t("noFolder"); }
-function isOrganized(bookmark) { const meta = state.metadata[bookmark.id]; return Boolean(meta && (meta.organizedAt || Object.hasOwn(meta, "title") || Object.hasOwn(meta, "note"))); }
+function folderName(id) {
+  const folder = state.folders.find((item) => item.id === id);
+  return folder?.folderType === "bookmarks-bar" ? t("directOnBar") : folder?.title || t("noFolder");
+}
+function folderOptionLabel(folder) { return `${"　".repeat(folder.depth)}${folderName(folder.id)}`; }
 function formatSavedAt(dateAdded) {
   if (!dateAdded) return t("noSavedDate");
   const diffMinutes = Math.floor((Date.now() - dateAdded) / 60000);
@@ -51,11 +54,6 @@ function openCurrent(url) { chrome.tabs.update({ url }); window.close(); }
 function openNew(url) { chrome.tabs.create({ url }); }
 function openBookmarkManager() { chrome.tabs.create({ url: "chrome://bookmarks/" }); window.close(); }
 function applyTheme(theme) { document.documentElement.dataset.theme = theme; document.querySelectorAll(".theme-toggle button[data-theme]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.theme === theme))); }
-function updateViewHeading() {
-  const inbox = state.view === "inbox";
-  $("view-title").textContent = inbox ? t("inbox") : t("recent");
-  $("view-description").textContent = inbox ? t("inboxDescription") : t("recentDescription");
-}
 function applyLanguage(language) {
   document.documentElement.lang = language;
   document.querySelectorAll("[data-i18n]").forEach((element) => { element.textContent = t(element.dataset.i18n); });
@@ -63,24 +61,21 @@ function applyLanguage(language) {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => { element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel)); });
   document.querySelectorAll(".theme-toggle button[data-language]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.language === language)));
   if (state.selected) $("original-title").textContent = t("originalTitle", { title: state.selected.title });
-  updateViewHeading(); renderList();
+  renderList();
 }
 function renderList() {
   const query = $("search-input").value.trim().toLowerCase();
-  const inbox = state.bookmarks.filter((bookmark) => !isOrganized(bookmark));
-  const source = state.view === "inbox" ? inbox : state.bookmarks;
-  const visible = source.filter((bookmark) => { const meta = state.metadata[bookmark.id] || {}; return [bookmark.title, meta.title, meta.note, folderName(bookmark.parentId)].join(" ").toLowerCase().includes(query); });
-  $("inbox-count").textContent = inbox.length;
-  status.textContent = query ? t("searchResults", { count: visible.length }) : state.view === "inbox" ? t("inboxCount", { count: visible.length }) : t("recentCount", { count: visible.length });
+  const visible = state.bookmarks.filter((bookmark) => { const meta = state.metadata[bookmark.id] || {}; return [bookmark.title, meta.title, meta.note, folderName(bookmark.parentId)].join(" ").toLowerCase().includes(query); });
+  status.textContent = query ? t("searchResults", { count: visible.length }) : t("recentCount", { count: visible.length });
   list.replaceChildren(...visible.map((bookmark) => createRow(bookmark)));
-  if (!visible.length) { const empty = document.createElement("li"); empty.className = "status"; empty.textContent = query ? t("noSearchResults") : state.view === "inbox" ? t("noInbox") : t("noRecent"); list.append(empty); }
+  if (!visible.length) { const empty = document.createElement("li"); empty.className = "status"; empty.textContent = query ? t("noSearchResults") : t("noRecent"); list.append(empty); }
 }
 function createRow(bookmark) {
   const meta = state.metadata[bookmark.id] || {};
   const item = document.createElement("li"); item.className = "bookmark-row";
   const favicon = createFavicon(bookmark.url, meta.title || bookmark.title);
   const main = document.createElement("button"); main.className = "bookmark-main"; main.type = "button";
-  main.innerHTML = `<div class="bookmark-title">${escapeHtml(meta.title || bookmark.title)}</div>${meta.note ? `<div class="bookmark-note">${escapeHtml(meta.note)}</div>` : ""}<div class="bookmark-meta"><span class="folder-location"><svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l2 2h9v9.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><path d="M3.5 9h17"/></svg><span class="bookmark-folder">${escapeHtml(folderName(bookmark.parentId))}</span></span><span class="bookmark-divider" aria-hidden="true">·</span><time class="bookmark-time">${escapeHtml(formatSavedAt(bookmark.dateAdded))}</time></div>`;
+  main.innerHTML = `<div class="bookmark-title">${escapeHtml(meta.title || bookmark.title)}</div><div class="bookmark-note${meta.note?.trim() ? "" : " is-empty"}">${escapeHtml(meta.note?.trim() || t("noNote"))}</div><div class="bookmark-meta"><span class="folder-location"><svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l2 2h9v9.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><path d="M3.5 9h17"/></svg><span class="bookmark-folder">${escapeHtml(folderName(bookmark.parentId))}</span></span><span class="bookmark-divider" aria-hidden="true">·</span><time class="bookmark-time">${escapeHtml(formatSavedAt(bookmark.dateAdded))}</time></div>`;
   main.addEventListener("click", () => openCurrent(bookmark.url));
   const actions = document.createElement("div"); actions.className = "bookmark-actions";
   actions.append(actionButton("✎", t("edit"), () => openEditor(bookmark)), actionButton("↗", t("openNewTab"), () => openNew(bookmark.url)));
@@ -98,7 +93,7 @@ function actionButton(label, name, handler) { const button = document.createElem
 function openEditor(bookmark) {
   state.selected = bookmark; const meta = state.metadata[bookmark.id] || {};
   $("title-input").value = meta.title || bookmark.title; $("note-input").value = meta.note || ""; $("original-title").textContent = t("originalTitle", { title: bookmark.title });
-  $("folder-select").replaceChildren(...state.folders.map((folder) => new Option(folder.optionLabel, folder.id, false, folder.id === bookmark.parentId)));
+  $("folder-select").replaceChildren(...state.folders.map((folder) => new Option(folderOptionLabel(folder), folder.id, false, folder.id === bookmark.parentId)));
   listView.hidden = true; editorView.hidden = false; $("title-input").focus();
 }
 function closeEditor() { editorView.hidden = true; listView.hidden = false; state.selected = null; renderList(); }
@@ -116,16 +111,11 @@ $("bookmark-manager-button").addEventListener("click", openBookmarkManager);
 $("refresh-button").addEventListener("click", load); $("search-input").addEventListener("input", renderList); $("back-button").addEventListener("click", closeEditor);
 document.querySelectorAll(".theme-toggle button[data-theme]").forEach((button) => button.addEventListener("click", async () => { const theme = button.dataset.theme; state.settings = { ...state.settings, theme }; applyTheme(theme); await saveSettings(state.settings); }));
 document.querySelectorAll(".theme-toggle button[data-language]").forEach((button) => button.addEventListener("click", async () => { const language = button.dataset.language; state.settings = { ...state.settings, language }; applyLanguage(language); await saveSettings(state.settings); }));
-document.querySelectorAll(".view-tab").forEach((button) => button.addEventListener("click", () => {
-  state.view = button.dataset.view;
-  document.querySelectorAll(".view-tab").forEach((tab) => { const active = tab === button; tab.classList.toggle("active", active); tab.setAttribute("aria-selected", String(active)); });
-  updateViewHeading(); renderList();
-}));
 $("create-folder").addEventListener("click", async () => {
   const title = window.prompt(t("newFolderPrompt")); const parentId = $("folder-select").value;
   if (!title?.trim() || !parentId) return;
   const folder = await createFolder(parentId, title.trim()); const tree = await getTree(); state.folders = flattenFolders(tree);
-  $("folder-select").replaceChildren(...state.folders.map((item) => new Option(item.optionLabel, item.id, false, item.id === folder.id)));
+  $("folder-select").replaceChildren(...state.folders.map((item) => new Option(folderOptionLabel(item), item.id, false, item.id === folder.id)));
   toast(t("folderCreated", { title: folder.title }));
 });
 $("editor-form").addEventListener("submit", async (event) => {

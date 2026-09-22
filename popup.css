@@ -13,7 +13,7 @@ button { cursor: pointer; }
 .icon-button, .text-button { border: 0; background: transparent; color: light-dark(#3c4043, #e8eaed); }
 .icon-button { border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 50%; width: 25px; height: 25px; font-weight: 700; }
 .help { margin: 12px 0; padding: 10px; border-left: 3px solid #1a73e8; background: light-dark(#f1f7fe, #303134); font-size: 12px; line-height: 1.45; }.help span { display: block; margin-top: 4px; }
-.section-heading { justify-content: space-between; margin: 16px 0 10px; }.section-heading h1, .editor-heading h1 { margin: 0; font-size: 20px; letter-spacing: -.3px; }.section-heading p, .editor-heading p { margin: 4px 0 0; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; }.view-tabs { display: flex; gap: 2px; margin-bottom: 10px; border-bottom: 1px solid light-dark(#dadce0, #5f6368); }.view-tab { border: 0; border-bottom: 2px solid transparent; padding: 7px 9px; background: transparent; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; font-weight: 600; }.view-tab.active { border-bottom-color: #1a73e8; color: #1967d2; }.view-tab span { margin-left: 3px; color: inherit; }
+.section-heading { justify-content: space-between; margin: 16px 0 10px; }.section-heading h1, .editor-heading h1 { margin: 0; font-size: 20px; letter-spacing: -.3px; }.section-heading p, .editor-heading p { margin: 4px 0 0; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; }
 .text-button { color: #1967d2; font-size: 12px; font-weight: 600; }.search { display: flex; gap: 10px; align-items: center; border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 6px; padding: 8px 12px; }.search > span { font-size: 18px; line-height: 1; font-weight: 700; }.search:focus-within { border-color: #1a73e8; box-shadow: 0 0 0 1px #1a73e8; }.search input { flex: 1; border: 0; outline: 0; background: transparent; color: inherit; font-size: 13px; }.status { padding: 12px 2px 6px; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; }
 .bookmark-list { list-style: none; margin: 0; padding: 0; }
 .bookmark-row { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 9px; align-items: start; border-top: 1px solid light-dark(#edf0f2, #3c4043); padding: 12px 2px; }
@@ -23,6 +23,7 @@ button { cursor: pointer; }
 .bookmark-title, .bookmark-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bookmark-title { font-size: 13px; font-weight: 650; line-height: 1.35; }
 .bookmark-note { margin-top: 4px; color: light-dark(#3c4043, #e8eaed); font-size: 11px; line-height: 1.35; }
+.bookmark-note.is-empty { color: light-dark(#80868b, #9aa0a6); }
 .bookmark-meta { display: flex; align-items: center; gap: 6px; min-width: 0; margin-top: 5px; color: light-dark(#5f6368, #bdc1c6); font-size: 11px; line-height: 1; }
 .folder-location { display: inline-flex; align-items: center; gap: 4px; flex: 0 1 auto; min-width: 0; max-width: 114px; }
 .folder-icon { flex: 0 0 14px; width: 14px; height: 14px; margin: 0; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; fill: none; }
@@ -35,6 +36,18 @@ button { cursor: pointer; }
 .back-button { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; margin-bottom: 16px; border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 999px; padding: 6px 10px; background: light-dark(#ffffff, #292a2d); color: light-dark(#3c4043, #e8eaed); font-size: 12px; font-weight: 650; }
 .back-button:hover { border-color: #1a73e8; color: #1967d2; }
 .back-button span:first-child { font-size: 15px; line-height: 1; }
+.editor-heading { margin-bottom: 18px; }
+.editor-heading p { overflow-wrap: anywhere; line-height: 1.4; }
+#editor-form { display: grid; gap: 14px; }
+#editor-form label { display: grid; gap: 6px; min-width: 0; font-size: 12px; font-weight: 650; }
+#editor-form input, #editor-form textarea, #editor-form select { width: 100%; min-width: 0; border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 6px; padding: 9px 10px; background: light-dark(#ffffff, #303134); color: inherit; font-size: 13px; font-weight: 400; }
+#editor-form input:focus, #editor-form textarea:focus, #editor-form select:focus { outline: 2px solid #1a73e8; outline-offset: 1px; }
+#editor-form textarea { min-height: 88px; resize: vertical; }
+.folder-create { justify-self: start; border: 0; padding: 0; background: transparent; color: #1967d2; font-size: 12px; font-weight: 650; }
+.editor-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+.editor-actions button { min-width: 0; border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 6px; padding: 9px 10px; background: light-dark(#ffffff, #303134); color: inherit; font-size: 12px; font-weight: 650; }
+.editor-actions .primary { grid-column: 1 / -1; border-color: #1a73e8; background: #1a73e8; color: #ffffff; }
+.editor-actions button:hover { filter: brightness(.95); }
 .settings-section { margin-top: 22px; }
 .settings-section h2 {
     margin-bottom: 5px;
