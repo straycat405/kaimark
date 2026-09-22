@@ -9,43 +9,73 @@
   <body>
     <main class="popup-shell">
       <header class="app-header">
-        <div class="brand"><span class="brand-mark">⌑</span><strong>Kaimark</strong></div>
-        <button id="help-button" class="icon-button" type="button" aria-label="사용 방법">?</button>
+        <div class="brand"><img class="brand-mark" src="icons/icon48.png" alt="" /><strong>Kaimark</strong></div>
+        <div class="header-actions">
+          <button id="help-button" class="icon-button" type="button" data-i18n-aria-label="helpLabel" aria-label="사용 방법">?</button>
+          <button id="settings-button" class="icon-button" type="button" data-i18n-aria-label="settings" aria-label="설정">⚙</button>
+        </div>
       </header>
 
       <section id="help" class="help" hidden>
-        <strong>저장한 북마크를 분류하고 관리하세요</strong>
-        <span>새로 저장한 북마크는 ‘분류하지 않음’에 모입니다. 제목, 메모, 폴더를 채워 나중에 쉽게 찾으세요.</span>
+        <strong data-i18n="helpTitle">저장한 북마크를 분류하고 관리하세요</strong>
+        <span data-i18n="helpDescription">새로 저장한 북마크는 ‘분류하지 않음’에 모입니다. 제목, 메모, 폴더를 채워 나중에 쉽게 찾으세요.</span>
       </section>
 
       <section id="list-view">
         <div class="section-heading">
           <div><h1 id="view-title">분류하지 않음</h1><p id="view-description">새 북마크를 먼저 분류합니다.</p></div>
-          <button id="refresh-button" class="text-button" type="button">새로고침</button>
+          <div class="list-actions">
+            <button id="bookmark-manager-button" class="text-button" type="button" data-i18n="bookmarkManager">북마크 관리자</button>
+            <button id="refresh-button" class="text-button" type="button" data-i18n="refresh">새로고침</button>
+          </div>
         </div>
-        <div class="view-tabs" role="tablist" aria-label="북마크 목록">
-          <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="inbox">분류하지 않음 <span id="inbox-count">0</span></button>
-          <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="recent">최근 저장</button>
+        <div class="view-tabs" role="tablist" data-i18n-aria-label="bookmarkList" aria-label="북마크 목록">
+          <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="inbox"><span data-i18n="inbox">분류하지 않음</span> <span id="inbox-count">0</span></button>
+          <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="recent" data-i18n="recent">최근 저장</button>
         </div>
-        <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="내 제목, 메모, 원본 제목 검색" autocomplete="off" /></label>
+        <label class="search"><span>⌕</span><input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="내 제목, 메모, 원본 제목 검색" autocomplete="off" /></label>
         <div id="status" class="status">북마크를 불러오는 중…</div>
         <ul id="bookmark-list" class="bookmark-list" aria-live="polite"></ul>
       </section>
 
       <section id="editor-view" hidden>
-        <button id="back-button" class="back-button" type="button">‹ 목록</button>
-        <div class="editor-heading"><h1>나중에 편집</h1><p id="original-title"></p></div>
+        <button id="back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">목록으로</span></button>
+        <div class="editor-heading"><h1 data-i18n="editBookmark">북마크 편집</h1><p id="original-title"></p></div>
         <form id="editor-form">
-          <label>1. 내 제목<input id="title-input" required maxlength="120" /></label>
-          <label>2. 저장 이유 / 메모<textarea id="note-input" rows="4" maxlength="1000" placeholder="왜 저장했는지, 언제 다시 쓸지"></textarea></label>
-          <label>3. 폴더 이동<select id="folder-select"></select></label>
-          <button id="create-folder" class="folder-create" type="button">+ 새 폴더 만들기</button>
+          <label><span data-i18n="personalTitle">1. 내 제목</span><input id="title-input" required maxlength="120" /></label>
+          <label><span data-i18n="noteLabel">2. 저장 이유 / 메모</span><textarea id="note-input" rows="4" maxlength="1000" data-i18n-placeholder="notePlaceholder" placeholder="왜 저장했는지, 언제 다시 쓸지"></textarea></label>
+          <label><span data-i18n="moveFolder">3. 폴더 이동</span><select id="folder-select"></select></label>
+          <button id="create-folder" class="folder-create" type="button" data-i18n="createFolder">+ 새 폴더 만들기</button>
           <div class="editor-actions">
-            <button class="primary" type="submit">변경사항 저장</button>
-            <button id="open-current" type="button">현재 탭</button>
-            <button id="open-new" type="button">새 탭 ↗</button>
+            <button class="primary" type="submit" data-i18n="saveChanges">변경사항 저장</button>
+            <button id="open-current" type="button" data-i18n="openCurrent">현재 탭</button>
+            <button id="open-new" type="button" data-i18n="openNew">새 탭 ↗</button>
           </div>
         </form>
+      </section>
+
+      <section id="settings-view" hidden>
+        <button id="settings-back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">목록으로</span></button>
+        <div class="editor-heading"><h1 data-i18n="settings">설정</h1></div>
+        <div class="settings-section">
+          <h2 data-i18n="appearance">화면 모드</h2>
+          <div class="theme-toggle" role="group" data-i18n-aria-label="appearance" aria-label="화면 모드">
+            <button type="button" data-theme="system" aria-pressed="true" data-i18n="system">시스템</button>
+            <button type="button" data-theme="light" aria-pressed="false" data-i18n="light">라이트</button>
+            <button type="button" data-theme="dark" aria-pressed="false" data-i18n="dark">다크</button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h2 data-i18n="language">언어</h2>
+          <div class="theme-toggle" role="group" data-i18n-aria-label="language" aria-label="언어">
+            <button type="button" data-language="ko" aria-pressed="true">한국어</button>
+            <button type="button" data-language="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+        <div class="settings-section settings-links">
+          <a id="report-bug-link" href="https://github.com/straycat405/kaimark/issues/new" target="_blank" rel="noreferrer"><span data-i18n="reportBug">버그 신고</span><span aria-hidden="true">↗</span></a>
+          <a id="changelog-link" href="https://github.com/straycat405/kaimark/commits/main" target="_blank" rel="noreferrer"><span data-i18n="changelog">변경 이력</span><span aria-hidden="true">↗</span></a>
+        </div>
       </section>
       <div id="toast" class="toast" role="status" hidden></div>
     </main>

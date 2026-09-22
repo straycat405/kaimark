@@ -1,13 +1,16 @@
 :root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 390px; background: light-dark(#ffffff, #202124); color: light-dark(#202124, #e8eaed); }
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
 .popup-shell { width: 420px; min-height: 460px; padding: 14px; }
-.app-header, .brand, .section-heading, .bookmark-actions, .editor-actions { display: flex; align-items: center; }
+.app-header, .brand, .section-heading, .bookmark-actions, .editor-actions, .header-actions, .list-actions { display: flex; align-items: center; }
 .app-header { justify-content: space-between; border-bottom: 1px solid light-dark(#dadce0, #5f6368); padding-bottom: 12px; }
-.brand { gap: 8px; font-size: 15px; }.brand-mark { color: #1a73e8; font-size: 22px; line-height: 1; }
-.icon-button, .text-button, .back-button { border: 0; background: transparent; color: light-dark(#3c4043, #e8eaed); }
+.header-actions, .list-actions { gap: 4px; }
+.brand { gap: 8px; font-size: 15px; }.brand-mark { width: 22px; height: 22px; }
+.icon-button, .text-button { border: 0; background: transparent; color: light-dark(#3c4043, #e8eaed); }
 .icon-button { border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 50%; width: 25px; height: 25px; font-weight: 700; }
 .help { margin: 12px 0; padding: 10px; border-left: 3px solid #1a73e8; background: light-dark(#f1f7fe, #303134); font-size: 12px; line-height: 1.45; }.help span { display: block; margin-top: 4px; }
 .section-heading { justify-content: space-between; margin: 16px 0 10px; }.section-heading h1, .editor-heading h1 { margin: 0; font-size: 20px; letter-spacing: -.3px; }.section-heading p, .editor-heading p { margin: 4px 0 0; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; }.view-tabs { display: flex; gap: 2px; margin-bottom: 10px; border-bottom: 1px solid light-dark(#dadce0, #5f6368); }.view-tab { border: 0; border-bottom: 2px solid transparent; padding: 7px 9px; background: transparent; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; font-weight: 600; }.view-tab.active { border-bottom-color: #1a73e8; color: #1967d2; }.view-tab span { margin-left: 3px; color: inherit; }
@@ -29,3 +32,19 @@ button { cursor: pointer; }
 .bookmark-actions { align-self: start; gap: 2px; }
 .bookmark-actions button { width: 28px; height: 28px; border: 0; border-radius: 4px; background: transparent; color: light-dark(#5f6368, #bdc1c6); }
 .bookmark-actions button:hover { background: light-dark(#f1f3f4, #3c4043); color: #1a73e8; }
+.back-button { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; margin-bottom: 16px; border: 1px solid light-dark(#dadce0, #5f6368); border-radius: 999px; padding: 6px 10px; background: light-dark(#ffffff, #292a2d); color: light-dark(#3c4043, #e8eaed); font-size: 12px; font-weight: 650; }
+.back-button:hover { border-color: #1a73e8; color: #1967d2; }
+.back-button span:first-child { font-size: 15px; line-height: 1; }
+.settings-section { margin-top: 22px; }
+.settings-section h2 {
+    margin-bottom: 5px;
+    margin: 0;
+    font-size: 14px;
+}
+.settings-section p { margin: 5px 0 10px; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; line-height: 1.4; }
+.theme-toggle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 8px; background: light-dark(#f1f3f4, #303134); }
+.theme-toggle button { border: 0; border-radius: 5px; padding: 8px 4px; background: transparent; color: light-dark(#5f6368, #bdc1c6); font-size: 12px; font-weight: 650; }
+.theme-toggle button[aria-pressed="true"] { background: light-dark(#ffffff, #3c4043); color: light-dark(#202124, #e8eaed); box-shadow: 0 1px 2px rgb(60 64 67 / .22); }
+.settings-links { border-top: 1px solid light-dark(#edf0f2, #3c4043); padding-top: 8px; }
+.settings-links a { display: flex; justify-content: space-between; padding: 10px 2px; color: light-dark(#3c4043, #e8eaed); font-size: 13px; text-decoration: none; }
+.settings-links a:hover { color: #1967d2; }
