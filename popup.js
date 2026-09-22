@@ -103,6 +103,9 @@ function closeSettings() { $("settings-view").hidden = true; listView.hidden = f
 async function load() {
   status.textContent = t("loading");
   const [bookmarks, metadata, tree, settings] = await Promise.all([getRecent(), getMetadata(), getTree(), getSettings()]);
+  const existing = new Set(); (function walk(nodes) { nodes.forEach((node) => { existing.add(node.id); if (node.children) walk(node.children); }); })(tree);
+  const stale = Object.keys(metadata).filter((id) => !existing.has(id));
+  if (stale.length) { stale.forEach((id) => delete metadata[id]); await saveMetadata(metadata); }
   state.bookmarks = bookmarks.filter((bookmark) => bookmark.url); state.metadata = metadata; state.settings = settings; state.folders = flattenFolders(tree); applyTheme(settings.theme); applyLanguage(settings.language);
 }
 
