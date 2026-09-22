@@ -3,25 +3,26 @@ const translations = {
     helpLabel: "사용 방법", settings: "설정", helpTitle: "저장한 북마크를 분류하고 관리하세요", helpDescription: "최근 저장한 북마크에 제목과 메모를 추가하고 폴더를 정리해 나중에 쉽게 찾으세요.",
     bookmarkManager: "북마크 관리자", refresh: "새로고침", recent: "최근 저장", searchPlaceholder: "내 제목, 메모, 원본 제목 검색",
     editBookmark: "북마크 편집", backToList: "목록으로", personalTitle: "1. 내 제목", noteLabel: "2. 저장 이유 / 메모", notePlaceholder: "왜 저장했는지, 언제 다시 쓸지", moveFolder: "3. 폴더 이동", createFolder: "+ 새 폴더 만들기", saveChanges: "변경사항 저장", openCurrent: "현재 탭", openNew: "새 탭 ↗",
-    settingsDescription: "Kaimark 환경을 조절합니다.", appearance: "화면 모드", appearanceDescription: "Chrome 또는 기기 설정을 따르거나, 밝고 어두운 화면을 직접 고릅니다.", system: "시스템", light: "라이트", dark: "다크", language: "언어", languageDescription: "Kaimark에 표시할 언어를 고릅니다.", reportBug: "버그 신고", changelog: "변경 이력",
+    settingsDescription: "Kaimark 환경을 조절합니다.", appearance: "화면 모드", appearanceDescription: "Chrome 또는 기기 설정을 따르거나, 밝고 어두운 화면을 직접 고릅니다.", system: "시스템", light: "라이트", dark: "다크", language: "언어", languageDescription: "Kaimark에 표시할 언어를 고릅니다. 시스템은 Chrome 언어를 따릅니다.", reportBug: "버그 신고", changelog: "변경 이력",
     loading: "북마크를 불러오는 중…", recentDescription: "최근 저장한 북마크", searchResults: "{count}개 검색 결과", recentCount: "최근 저장 {count}개", noSearchResults: "일치하는 북마크가 없습니다.", noRecent: "최근 북마크가 없습니다.", noNote: "메모 없음", directOnBar: "북마크바에 직접", otherBookmarks: "기타 북마크", noFolder: "폴더 없음", noSavedDate: "저장일 없음", justNow: "방금 저장", minutesAgo: "{count}분 전", hoursAgo: "{count}시간 전", daysAgo: "{count}일 전", edit: "편집", openNewTab: "새 탭에서 열기", originalTitle: "원본: {title}", newFolderPrompt: "새 폴더 이름", folderCreated: "‘{title}’ 폴더를 만들었습니다.", changesSaved: "변경사항을 저장했습니다."
   },
   en: {
     helpLabel: "How to use", settings: "Settings", helpTitle: "Organize and rediscover your bookmarks", helpDescription: "Add a title and note to recent bookmarks, and organize them in folders so you can find them later.",
     bookmarkManager: "Bookmark Manager", refresh: "Refresh", recent: "Recent", searchPlaceholder: "Search titles, notes, and bookmarks",
     editBookmark: "Edit bookmark", backToList: "Back to list", personalTitle: "1. My title", noteLabel: "2. Why I saved it / note", notePlaceholder: "Why you saved this or when to use it", moveFolder: "3. Move to folder", createFolder: "+ Create folder", saveChanges: "Save changes", openCurrent: "Current tab", openNew: "New tab ↗",
-    settingsDescription: "Personalize your Kaimark experience.", appearance: "Appearance", appearanceDescription: "Follow Chrome or your device, or choose a light or dark appearance.", system: "System", light: "Light", dark: "Dark", language: "Language", languageDescription: "Choose the language shown in Kaimark.", reportBug: "Report a Bug", changelog: "Changelog",
+    settingsDescription: "Personalize your Kaimark experience.", appearance: "Appearance", appearanceDescription: "Follow Chrome or your device, or choose a light or dark appearance.", system: "System", light: "Light", dark: "Dark", language: "Language", languageDescription: "Choose the language shown in Kaimark. System follows your Chrome language.", reportBug: "Report a Bug", changelog: "Changelog",
     loading: "Loading bookmarks…", recentDescription: "Recently saved bookmarks", searchResults: "{count} search results", recentCount: "{count} recent bookmarks", noSearchResults: "No matching bookmarks.", noRecent: "No recent bookmarks.", noNote: "No note", directOnBar: "On bookmarks bar", otherBookmarks: "Other bookmarks", noFolder: "No folder", noSavedDate: "No saved date", justNow: "Saved just now", minutesAgo: "{count}m ago", hoursAgo: "{count}h ago", daysAgo: "{count}d ago", edit: "Edit", openNewTab: "Open in new tab", originalTitle: "Original: {title}", newFolderPrompt: "New folder name", folderCreated: "Created ‘{title}’.", changesSaved: "Changes saved."
   }
 };
 
-const state = { bookmarks: [], metadata: {}, selected: null, folders: [], settings: { theme: "system", language: "ko" } };
+const state = { bookmarks: [], metadata: {}, selected: null, folders: [], settings: { theme: "system", language: "system" } };
 const $ = (id) => document.getElementById(id);
 const listView = $("list-view"), editorView = $("editor-view"), list = $("bookmark-list"), status = $("status");
-function t(key, values = {}) { const value = translations[state.settings.language]?.[key] ?? translations.ko[key] ?? key; return Object.entries(values).reduce((text, [name, replacement]) => text.replaceAll(`{${name}}`, replacement), value); }
+function resolveLanguage(language) { if (language === "ko" || language === "en") return language; return (chrome.i18n?.getUILanguage?.() || navigator.language || "en").toLowerCase().startsWith("ko") ? "ko" : "en"; }
+function t(key, values = {}) { const value = translations[resolveLanguage(state.settings.language)]?.[key] ?? translations.en[key] ?? key; return Object.entries(values).reduce((text, [name, replacement]) => text.replaceAll(`{${name}}`, replacement), value); }
 function getMetadata() { return new Promise((resolve) => chrome.storage.local.get({ metadata: {} }, ({ metadata }) => resolve(metadata))); }
 function saveMetadata(metadata) { return new Promise((resolve) => chrome.storage.local.set({ metadata }, resolve)); }
-function getSettings() { const defaults = { theme: "system", language: "ko" }; return new Promise((resolve) => chrome.storage.local.get({ settings: defaults }, ({ settings }) => resolve({ ...defaults, ...settings }))); }
+function getSettings() { const defaults = { theme: "system", language: "system" }; return new Promise((resolve) => chrome.storage.local.get({ settings: defaults }, ({ settings }) => resolve({ ...defaults, ...settings }))); }
 function saveSettings(settings) { return new Promise((resolve) => chrome.storage.local.set({ settings }, resolve)); }
 function getRecent() { return new Promise((resolve) => chrome.bookmarks.getRecent(50, resolve)); }
 function getTree() { return new Promise((resolve) => chrome.bookmarks.getTree(resolve)); }
@@ -48,14 +49,14 @@ function formatSavedAt(dateAdded) {
   if (diffMinutes < 60) return t("minutesAgo", { count: diffMinutes });
   if (diffMinutes < 1440) return t("hoursAgo", { count: Math.floor(diffMinutes / 60) });
   if (diffMinutes < 7 * 1440) return t("daysAgo", { count: Math.floor(diffMinutes / 1440) });
-  return new Intl.DateTimeFormat(state.settings.language === "en" ? "en-US" : "ko-KR", { month: "numeric", day: "numeric" }).format(new Date(dateAdded));
+  return new Intl.DateTimeFormat(resolveLanguage(state.settings.language) === "ko" ? "ko-KR" : "en-US", { month: "numeric", day: "numeric" }).format(new Date(dateAdded));
 }
 function openCurrent(url) { chrome.tabs.update({ url }); window.close(); }
 function openNew(url) { chrome.tabs.create({ url }); }
 function openBookmarkManager() { chrome.tabs.create({ url: "chrome://bookmarks/" }); window.close(); }
 function applyTheme(theme) { document.documentElement.dataset.theme = theme; document.querySelectorAll(".theme-toggle button[data-theme]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.theme === theme))); }
 function applyLanguage(language) {
-  document.documentElement.lang = language;
+  document.documentElement.lang = resolveLanguage(language);
   document.querySelectorAll("[data-i18n]").forEach((element) => { element.textContent = t(element.dataset.i18n); });
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => { element.placeholder = t(element.dataset.i18nPlaceholder); });
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => { element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel)); });

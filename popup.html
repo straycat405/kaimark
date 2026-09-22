@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,66 +11,67 @@
       <header class="app-header">
         <div class="brand"><img class="brand-mark" src="icons/icon48.png" alt="" /><strong>Kaimark</strong></div>
         <div class="header-actions">
-          <button id="help-button" class="icon-button" type="button" data-i18n-aria-label="helpLabel" aria-label="사용 방법">?</button>
-          <button id="settings-button" class="icon-button" type="button" data-i18n-aria-label="settings" aria-label="설정">⚙</button>
+          <button id="help-button" class="icon-button" type="button" data-i18n-aria-label="helpLabel" aria-label="How to use">?</button>
+          <button id="settings-button" class="icon-button" type="button" data-i18n-aria-label="settings" aria-label="Settings">⚙</button>
         </div>
       </header>
 
       <section id="help" class="help" hidden>
-        <strong data-i18n="helpTitle">저장한 북마크를 분류하고 관리하세요</strong>
-        <span data-i18n="helpDescription">최근 저장한 북마크에 제목과 메모를 추가하고 폴더를 정리해 나중에 쉽게 찾으세요.</span>
+        <strong data-i18n="helpTitle">Organize and rediscover your bookmarks</strong>
+        <span data-i18n="helpDescription">Add a title and note to recent bookmarks, and organize them in folders so you can find them later.</span>
       </section>
 
       <section id="list-view">
         <div class="section-heading">
-          <div><h1 data-i18n="recent">최근 저장</h1><p data-i18n="recentDescription">최근 저장한 북마크(즐겨찾기)</p></div>
+          <div><h1 data-i18n="recent">Recent</h1><p data-i18n="recentDescription">Recently saved bookmarks</p></div>
           <div class="list-actions">
-            <button id="bookmark-manager-button" class="text-button" type="button" data-i18n="bookmarkManager">북마크 관리자</button>
-            <button id="refresh-button" class="text-button" type="button" data-i18n="refresh">새로고침</button>
+            <button id="bookmark-manager-button" class="text-button" type="button" data-i18n="bookmarkManager">Bookmark Manager</button>
+            <button id="refresh-button" class="text-button" type="button" data-i18n="refresh">Refresh</button>
           </div>
         </div>
-        <label class="search"><span>⌕</span><input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="내 제목, 메모, 원본 제목 검색" autocomplete="off" /></label>
-        <div id="status" class="status">북마크를 불러오는 중…</div>
+        <label class="search"><span>⌕</span><input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search titles, notes, and bookmarks" autocomplete="off" /></label>
+        <div id="status" class="status">Loading bookmarks…</div>
         <ul id="bookmark-list" class="bookmark-list" aria-live="polite"></ul>
       </section>
 
       <section id="editor-view" hidden>
-        <button id="back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">목록으로</span></button>
-        <div class="editor-heading"><h1 data-i18n="editBookmark">북마크 편집</h1><p id="original-title"></p></div>
+        <button id="back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">Back to list</span></button>
+        <div class="editor-heading"><h1 data-i18n="editBookmark">Edit bookmark</h1><p id="original-title"></p></div>
         <form id="editor-form">
-          <label><span data-i18n="personalTitle">1. 내 제목</span><input id="title-input" required maxlength="120" /></label>
-          <label><span data-i18n="noteLabel">2. 저장 이유 / 메모</span><textarea id="note-input" rows="4" maxlength="1000" data-i18n-placeholder="notePlaceholder" placeholder="왜 저장했는지, 언제 다시 쓸지"></textarea></label>
-          <label><span data-i18n="moveFolder">3. 폴더 이동</span><select id="folder-select"></select></label>
-          <button id="create-folder" class="folder-create" type="button" data-i18n="createFolder">+ 새 폴더 만들기</button>
+          <label><span data-i18n="personalTitle">1. My title</span><input id="title-input" required maxlength="120" /></label>
+          <label><span data-i18n="noteLabel">2. Why I saved it / note</span><textarea id="note-input" rows="4" maxlength="1000" data-i18n-placeholder="notePlaceholder" placeholder="Why you saved this or when to use it"></textarea></label>
+          <label><span data-i18n="moveFolder">3. Move to folder</span><select id="folder-select"></select></label>
+          <button id="create-folder" class="folder-create" type="button" data-i18n="createFolder">+ Create folder</button>
           <div class="editor-actions">
-            <button class="primary" type="submit" data-i18n="saveChanges">변경사항 저장</button>
-            <button id="open-current" type="button" data-i18n="openCurrent">현재 탭</button>
-            <button id="open-new" type="button" data-i18n="openNew">새 탭 ↗</button>
+            <button class="primary" type="submit" data-i18n="saveChanges">Save changes</button>
+            <button id="open-current" type="button" data-i18n="openCurrent">Current tab</button>
+            <button id="open-new" type="button" data-i18n="openNew">New tab ↗</button>
           </div>
         </form>
       </section>
 
       <section id="settings-view" hidden>
-        <button id="settings-back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">목록으로</span></button>
-        <div class="editor-heading"><h1 data-i18n="settings">설정</h1></div>
+        <button id="settings-back-button" class="back-button" type="button"><span aria-hidden="true">←</span><span data-i18n="backToList">Back to list</span></button>
+        <div class="editor-heading"><h1 data-i18n="settings">Settings</h1></div>
         <div class="settings-section">
-          <h2 data-i18n="appearance">화면 모드</h2>
-          <div class="theme-toggle" role="group" data-i18n-aria-label="appearance" aria-label="화면 모드">
-            <button type="button" data-theme="system" aria-pressed="true" data-i18n="system">시스템</button>
-            <button type="button" data-theme="light" aria-pressed="false" data-i18n="light">라이트</button>
-            <button type="button" data-theme="dark" aria-pressed="false" data-i18n="dark">다크</button>
+          <h2 data-i18n="appearance">Appearance</h2>
+          <div class="theme-toggle" role="group" data-i18n-aria-label="appearance" aria-label="Appearance">
+            <button type="button" data-theme="system" aria-pressed="true" data-i18n="system">System</button>
+            <button type="button" data-theme="light" aria-pressed="false" data-i18n="light">Light</button>
+            <button type="button" data-theme="dark" aria-pressed="false" data-i18n="dark">Dark</button>
           </div>
         </div>
         <div class="settings-section">
-          <h2 data-i18n="language">언어</h2>
-          <div class="theme-toggle" role="group" data-i18n-aria-label="language" aria-label="언어">
-            <button type="button" data-language="ko" aria-pressed="true">한국어</button>
+          <h2 data-i18n="language">Language</h2>
+          <div class="theme-toggle" role="group" data-i18n-aria-label="language" aria-label="Language">
+            <button type="button" data-language="system" aria-pressed="true" data-i18n="system">System</button>
             <button type="button" data-language="en" aria-pressed="false">English</button>
+            <button type="button" data-language="ko" aria-pressed="false">한국어</button>
           </div>
         </div>
         <div class="settings-section settings-links">
-          <a id="report-bug-link" href="https://github.com/straycat405/kaimark/issues/new" target="_blank" rel="noreferrer"><span data-i18n="reportBug">버그 신고</span><span aria-hidden="true">↗</span></a>
-          <a id="changelog-link" href="https://github.com/straycat405/kaimark/commits/main" target="_blank" rel="noreferrer"><span data-i18n="changelog">변경 이력</span><span aria-hidden="true">↗</span></a>
+          <a id="report-bug-link" href="https://github.com/straycat405/kaimark/issues/new" target="_blank" rel="noreferrer"><span data-i18n="reportBug">Report a Bug</span><span aria-hidden="true">↗</span></a>
+          <a id="changelog-link" href="https://github.com/straycat405/kaimark/commits/main" target="_blank" rel="noreferrer"><span data-i18n="changelog">Changelog</span><span aria-hidden="true">↗</span></a>
         </div>
       </section>
       <div id="toast" class="toast" role="status" hidden></div>
